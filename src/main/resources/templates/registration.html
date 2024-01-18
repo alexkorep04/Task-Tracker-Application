@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Task tracker</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: #FF0000;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<br><br>
+<form th:action="@{/tracker/registration}" th:object="${user}" method="post">
+    <div>
+        <label> Username:
+            <input th:field="*{username}" placeholder="Enter your username:"/>
+            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+        </label>
+    </div>
+    <div>
+        <label> Password:
+            <input th:field="*{password}" type="password" placeholder="Enter your password:"/>
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+        </label>
+    </div>
+    <div>
+        <label> Email:
+            <input th:field="*{email}" type="text" placeholder="Enter your email:"/>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="Register"/>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Task tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            padding: 15px 25px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2c81ba;
+        }
+    </style>
+    <title>Task tracker</title>
+</head>
+<body>
+
+<h2>Enter the dates and type for which you want to get statistics</h2>
+
+<form th:action="@{/tracker/dashboard/statistics-form}" th:object="${dateAndType}"  method="post">
+    <div>
+        <label>From:
+            <input type="date" th:field="*{dateFilter.from}" placeholder="Enter from date:"/>
+        </label>
+    </div>
+    <div>
+        <label>To:
+            <input type="date" th:field="*{dateFilter.to}" placeholder="Enter to date:"/>
+        </label>
+    </div>
+    <div>
+        <label> Type:
+            <select th:field="*{type}">
+                <option value="ALL">All</option>
+                <option value="ART">Art</option>
+                <option value="SCIENCE">Science</option>
+                <option value="MUSIC">Music</option>
+                <option value="SPORT">Sport</option>
+                <option value="OTHER">Other</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="See statistics"/>
+    </div>
+</form>
+
+</body>
+</html>

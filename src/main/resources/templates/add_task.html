@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task tracker</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            padding: 15px 25px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2c81ba;
+        }
+    </style>
+</head>
+<body>
+<form th:action="@{/tracker/dashboard/add}" th:object="${task}" method="post">
+    <div>
+        <label> Description:
+            <input th:field="*{name}" placeholder="Enter description of task:"/>
+        </label>
+    </div>
+    <div>
+        <label> Deadline:
+            <input th:field="*{deadline}" type="date" placeholder="Enter deadline:"/>
+        </label>
+    </div>
+    <div>
+        <label> Type:
+            <select th:field="*{type}">
+                <option value="ART">Art</option>
+                <option value="SCIENCE">Science</option>
+                <option value="MUSIC">Music</option>
+                <option value="SPORT">Sport</option>
+                <option value="OTHER">Other</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="Add Task"/>
+    </div>
+</form>
+</body>
+</html>

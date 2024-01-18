@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Tracker</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        span {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #0056b3;
+            text-shadow: 0 0 5px #0056b3;
+        }
+    </style>
+</head>
+<body>
+<p>Your password was reset.</p>
+<p>We sent new password on your email account.</p>
+<p>Contacts: trackeralexkorep@gmail.com</p>
+<a th:href="@{/tracker/login}">Login page</a></p>
+</body>
+</html>
