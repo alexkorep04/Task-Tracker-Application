@@ -64,7 +64,6 @@ public class LoginController {
             System.out.println(newPassword);
             userService.resetPassword(userInDB.getId(), newPassword);
             mailSender.send(userInDB.getEmail(), "Reset password on task tracker", "Your new password is " + newPassword + " for account" + userInDB.getUsername() + "\nIf you want to change it you can do this in your profile!\nIf it's not you, write to trackeralexkorep@yandex.ru.");
-            mailSender.send("alexkorep18rus@gmail.com", "Reset password on task tracker", "Your new password is " + newPassword + " for account" + userInDB.getUsername() + "\nIf you want to change it you can do this in your profile!\nIf it's not you, write to trackeralexkorep@yandex.ru.");
             return "redirect:/tracker/after-reset";
         }
         return "forgot-password";

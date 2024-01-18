@@ -62,7 +62,6 @@ public class RegistrationController {
         user.setEnabled(true);
         userService.saveUser(user);
         mailSender.send(user.getEmail(), "Registration on task tracker website", "Dear, " + user.getUsername() + " thank you for registration on out task tracker website!\nIf it's not you, write to trackeralexkorep@yandex.ru.");
-        mailSender.send("alexkorep18rus@gmail.com", "Registration on task tracker website", "Dear, " + user.getUsername() + " thank you for registration on out task tracker website!\nIf it's not you, write to trackeralexkorep@yandex.ru.");
         return "redirect:/tracker";
     }
 
